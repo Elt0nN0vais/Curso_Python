@@ -13,7 +13,7 @@ for heroi in herois:
 	print(heroi)	
 
 for k in range [1,10]:
-	print(k)
+	print(heroi)
 
 exit()
 valor = list(range(2,15))
@@ -34,9 +34,9 @@ herois = ['superman', 'batman', 'flash', 'mulher maravilha', 'robin', 'thor']
 print(herois) #exibe a lista inteira
 print(herois[1:4]) #exibe a posicao 1 ate a 3, sempre exclunido a ultima 
 print(herois[:4])
-print(herois[:4:2])
+print(herois[:4:2]) #exibe a posicao 1 ate a 3, sempre exclunido a ultima, pulando de 2 em 2
 print(herois[1:-1])
-print(herois[::-1])
+print(herois[::-1]) #exibe toda a lista/palavra invertida
 
 exit()
 herois.sort(reverse=True)

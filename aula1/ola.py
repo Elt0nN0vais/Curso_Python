@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 
+
+
+
 nome = input('Digite nome do aluno: ')
 n1 = float(input('Digite a primeira nota: '))
 n2 = float(input('Digite a segunda nota: '))
@@ -8,19 +11,18 @@ n4 = float(input('Digite a quarta nota: '))
 
 media = (n1+n2+n3+n4)/4
 
-print(nome + ' teve media ' + str(media))
+print(nome.title() + ' teve media ' + str(media))
 
 
-exit()
+exit() #Ok
 nome = input('Digite nome: ')
 idade = input('Digite idade: ')
 
 print(nome.title() + ' tem ' + (idade) + ' anos. ')
 
 
-exit()
+exit() #Ok
 a,b = 10,3
-
 print(a + b)
 print(a - b)
 print(a * b)
@@ -29,7 +31,7 @@ print(a // b)
 print(a % b)
 
 
-exit()
+exit() #Ok
 nome = 'Joao'
 idade = 20
 mensagem = nome + ' tem ' + str(idade) + ' anos. '
@@ -37,24 +39,25 @@ mensagem = nome + ' tem ' + str(idade) + ' anos. '
 print(mensagem)
 
 
-exit()
+exit() #Ok
 nome = 'mcdonald\'s\n\t'
 sobrenome = 'maddog'
-completo = nome.title() + ' ' + sobrenome.title()
+completo = nome.title() + ' ' + sobrenome.title() #exibe a primeira da variável letra Maiscula
 
 print(completo)
 
 
-exit()
+exit() #Ok
 nome = '     maddog      '
-print(nome.split())
-print(nome.title())
-print(nome.upper())
-print(nome.lower())
-print(nome.lstrip())
+print(nome.split()) #exibe o nome em forma de lista
+print(nome.title()) #exibe a primeira letra Maiscula
+print(nome.upper()) #exibe todas as letras MAIUSCULAS
+print(nome.lower()) #exibe todas as letras minusculas
+print(nome.lstrip()) #anula os espaços à esquerda
+print(nome.rstrip()) #anula os espaços à direita
 
 
-exit()
+exit() #Ok
 mensagem = 'Ola mundo!'
 print(mensagem)
 

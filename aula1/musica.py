@@ -182,6 +182,3 @@ for k in musica:
 
 print('total: {}'.format(num_consoante))
 
-
-
-
