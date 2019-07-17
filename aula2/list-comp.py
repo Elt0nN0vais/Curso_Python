@@ -46,18 +46,18 @@ for valor in usuario.values():
 #OK
 exit()
 
-#cores = {'red':'vermelho', 'blue':'azul', 'green':'verde'}
-#print(cores['red'])
+cores = {'red':'vermelho', 'blue':'azul', 'green':'verde'}
+print(cores['red'])
 
-#koppa1 = {'cor':'vermelho', 'pontos':30}
-#pontos = koppa1 ['pontos']
-#print(pontos)
+koppa1 = {'cor':'vermelho', 'pontos':30}
+pontos = koppa1 ['pontos']
+print(pontos)
 
-#koppa1['eixo_x'] = 5
-#koppa1['eixo_y'] = 15
-#koppa1['velocidade'] = 'rapido'
+koppa1['eixo_x'] = 5
+koppa1['eixo_y'] = 15
+koppa1['velocidade'] = 'rapido'
 
-#print(koppa1)
+print(koppa1)
 
 if koppa1['velocidade'] == 'lento':
 	anda_x = 1

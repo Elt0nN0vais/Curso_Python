@@ -3,18 +3,29 @@
 
 
 
-# # arq = 'arquivo.txt'
-# # nomes = ['Robin\n','mulher maravilha\n','Supermman\n']
+arq = 'arquivo.txt'
+nomes = ['Robin\n','mulher maravilha\n','Supermman\n']
 
-# # with open(arq,'a') as arquivo: #'a' append - acresenta os arquivos
-# # 	arquivo.writelines(nomes)
+with open(arq,'a') as arquivo: #'a' append - acresenta os arquivos
+	arquivo.writelines(nomes)
 
-# # with open(arq) as arquivo:
-# # 	conteudo = arquivo.read()
-# # 	print(conteudo)
+with open(arq) as arquivo:
+	conteudo = arquivo.read()
+	print(conteudo)
 
+cores = {'red':'vermelho', 'blue':'azul', 'green':'verde'}
+print(cores['red'])
 
-# exit()
+koppa1 = {'cor':'vermelho', 'pontos':30}
+pontos = koppa1 ['pontos']
+print(pontos)
+
+koppa1['eixo_x'] = 5
+koppa1['eixo_y'] = 15
+koppa1['velocidade'] = 'rapido'
+
+print(koppa1)
+exit()
 with open('arquivo.txt') as arquivo:
 	linhas = arquivo.readlines()
 print(linhas)	
@@ -32,7 +43,7 @@ with open('arquivo.txt') as arquivo:
 	print(conteudo)
 
 
-exit()
+# exit()
 arquivo = open('arquivo.txt')
 print(arquivo.read())
 arquivo.close()
