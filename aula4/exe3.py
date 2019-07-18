@@ -17,6 +17,10 @@ class Conta():
 		self.saldo += valor
 		return self.saldo
 
+	def transferir(self,valor,conta):
+		self.saque(valor)
+		conta.deposito(valor)
+
 class Poupanca(Conta):
 	def __init__(self,titular,numero,saldo):
 		super().__init__(titular,numero,saldo)
