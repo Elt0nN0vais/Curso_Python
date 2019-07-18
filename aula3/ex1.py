@@ -1,5 +1,10 @@
 #!/usr/bin/python3
 
+
+
+
+
+exit()
 arq = 'arquivo.txt' #cria um arquivo .txt
 	
 def cadastrar(**kwargs): 
