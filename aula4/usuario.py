@@ -1,9 +1,5 @@
 #!/usr/bin/python3
 
-
-
-
-
 class Carro():
 	def __init__(self,marca,modelo,ano):
 		self.marca = marca
@@ -85,7 +81,6 @@ meu_carro = Carro('VW','fusca','1980')
 
 exit() #OK
 class User():
-	"""descricao"""
 	#usuario = None
 
 	def __init__(self,nome,sobrenome,username,senha):

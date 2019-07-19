@@ -71,7 +71,6 @@ terceiro.status()
 
 exit() #OK
 class Saudacao():
-	"""descricao"""
 	usuario = None
 
 	def __init__(self,nome,sobrenome):
@@ -85,7 +84,6 @@ class Saudacao():
 		print('\n{} {} bom dia'.format(self.nome,self.sobrenome))
 
 
-	
 meu_usuario = Saudacao('Elton','Novais')
 meu_usuario.dono = 'Elton'
 print('Usuario: {}'.format(meu_usuario.dono))
@@ -98,7 +96,6 @@ meu_usuario.saudar()
 
 exit() #OK
 class Cachorro():
-	"""descricao"""
 	dono = None
 
 	def __init__(self,nome,idade):

@@ -4,7 +4,7 @@
 
 
 
-exit()
+#exit()
 arq = 'arquivo.txt' #cria um arquivo .txt
 	
 def cadastrar(**kwargs): 
