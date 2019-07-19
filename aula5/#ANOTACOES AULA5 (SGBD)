@@ -1,0 +1,191 @@
+#ANOTACOES AULA5 (SGBD)
+
+#Banco de dados Postgres
+
+developer@developer:~$ sudo su >> #entra no usuario root
+
+root@developer:/home/developer# sudo apt install python3-pip -y >> instala o pip no python
+root@developer:/home/developer# apt update && install postgresql -y >> instala o postgresql
+root@developer:/home/developer# ss -nlpt | grep 5432 >> verifica se o postgre está rodando na porta 5432
+root@developer:/home/developer# systemctl status postgresql >>> verifica o status
+root@developer:/home/developer# su - postgres >> entra no usuario do postgree
+root@developer:/home/developer# psql -h localhost -U batman gotham >>
+Senha para usuário batman: gotham123
+
+postgres@developer:~$ psql
+postgres=# create user batman password 'gotham123'; >> cria um usuario batman
+postgres=# create database gotham owner batman; >> cria um DB gotham cujo dono é o batman
+postgres=# \l 
+
+gotham=> #>> dentro do banco criado 'gotham'
+
+gotham=> \dt 
+
+         Lista de relações
+ Esquema |  Nome  |  Tipo  |  Dono  
+---------+--------+--------+--------
+ public  | herois | tabela | batman
+ public  | viloes | tabela | batman
+
+gotham=> create table viloes(id serial,nome varchar(50),idade int); #>> cria uma tabela e seu padrão
+gotham=> insert into viloes(nome,idade) values ('charada',32); #>> insert para inserir dados (nome,idade) na tabela viloes
+gotham=> insert into viloes(nome,idade) values ('arlequina',18);
+gotham=> insert into viloes(nome,idade) values ('mascara negra',30);
+gotham=> insert into viloes(nome,idade) values ('mascara negra',30);
+gotham=> insert into viloes(nome,idade) values ('duas caras',35);
+gotham=> insert into viloes(nome,idade) values ('coringa',35);
+
+gotham=> select * from viloes; #>> seleciona (exibe) a tabela
+
+ id |     nome      | idade 
+----+---------------+-------
+  3 | charada       |    32
+  4 | arlequina     |    18
+  5 | mascara negra |    30
+  6 | mascara negra |    30
+  1 | duas caras    |    35
+  7 | coringa       |    30
+
+gotham=> update viloes set nome='mascaranegra' where id=6; #>> atualiza dados (nesse caso alterou o nome do id=6)
+
+id |     nome      | idade 
+----+---------------+-------
+  3 | charada       |    32
+  4 | arlequina     |    18
+  5 | mascara negra |    30
+  6 | mascaranegra  |    30
+  1 | duas caras    |    35
+  7 | coringa       |    30
+
+gotham=> delete from viloes where id=2; #>> deleta dados (nesse caso, o id=2 da tabela viloes)
+
+
+#----------------------------------------------------------------------------------------------------------------
+
+#Banco de dados MySQL versão opensource (mariadb). Não foi opssivel capturar as etapas de instalcao e configuracao do MySQL
+
+#já operando dentro do banco. 
+
+MariaDB [(none)]> create user robin identified by 'Gotham@123'; #>> cria um usuario robin
+Query OK, 0 rows affected (0.02 sec) .
+
+MariaDB [(none)]> show databases; #>> exibe o DB
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
++--------------------+
+3 rows in set (0.00 sec) #>> resposta do sistema
+
+MariaDB [(none)]> create database gotham; #>> cria o DB gotham
+Query OK, 1 row affected (0.00 sec) #>> resposta do sistema
+
+MariaDB [(none)]> grant all privileges on gotham.* to robin@localhost identified by "Gotham@123"; #>> dando todos os privilegios para o usuario robin com a senha
+Query OK, 0 rows affected (0.00 sec) #>> resposta do sistema
+
+MariaDB [(none)]> \q
+Bye #>>saindo do banco...
+
+root@developer:/home/developer# mysql -u robin -p #>>> entrando no mysql com o usuario robin
+Enter password: # Gotham@123
+
+MariaDB [(none)]> use gotham
+Database changed
+MariaDB [gotham]> show tables; #>>dentro do banco
+Empty set (0.00 sec) #vazio
+
+MariaDB [gotham]> create table viloes(id int primary key not null auto_increment, nome varchar(50), idade int); #>> cria uma tabela e seu padrão
+Query OK, 0 rows affected (0.04 sec) #>> resposta do sistema
+
+MariaDB [gotham]> show tables; #exibe as tabelas dentro do DB gotham
++------------------+
+| Tables_in_gotham |
++------------------+
+| viloes           |
++------------------+
+1 row in set (0.00 sec)
+
+MariaDB [gotham]> desc viloes; # descreve as tabelas dentro do DB gotham
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| nome  | varchar(50) | YES  |     | NULL    |                |
+| idade | int(11)     | YES  |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+3 rows in set (0.00 sec)
+
+
+MariaDB [gotham]> insert into viloes(nome,idade) values ('coringa',35); #>> insert para inserir dados (nome,idade) na tabela viloes
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [gotham]> select * from viloes; #>> exibe a tabela viloes
++----+---------+-------+
+| id | nome    | idade |
++----+---------+-------+
+|  1 | coringa |    35 |
+|----+---------+-------+
+1 rows in set (0.00 sec)
+
+MariaDB [gotham]> delete from viloes where id=1;
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [gotham]> select * from viloes;
++----+---------+-------+
+| id | nome    | idade |
++----+---------+-------+
+|  2 | coringa |    35 |
++----+---------+-------+
+1 row in set (0.00 sec)
+
+MariaDB [gotham]> \q
+Bye
+
+
+
+#-----------------------------------------------------------------------------------------------------
+
+#Banco de dados Mongo
+
+developer@developer:~$ sudo su #entra no usuario root
+root@developer:/home/developer# apt install mongodb -y >> instala o mongodb
+root@developer:/home/developer# ss -nltp | grep 27017 >> verifica se o postgre está rodando na porta 27107
+root@developer:/home/developer# systemctl status mongodb >>verifica o status
+root@developer:/home/developer# mongo >> inicia o banco
+> show dbs; #>> dentro do banco
+> db.dropDatabase()
+> db.herois.insert({_id:1,nome:'peter',sobrenome:'parker',heroi:'omiranha'})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
